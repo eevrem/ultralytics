@@ -61,7 +61,6 @@ class Colors:
                 [255, 128, 0],
                 [255, 153, 51],
                 [255, 178, 102],
-                [139, 69, 19],
                 [230, 230, 0],
                 [255, 153, 255],
                 [153, 204, 255],
@@ -160,7 +159,7 @@ class Annotator:
         self.limb_color = colors.pose_palette[[9, 9, 9, 9, 7, 7, 7, 0, 0, 0, 0, 0, 16, 16, 16, 16, 16, 16, 16]]
         self.kpt_color = colors.pose_palette[[16, 16, 16, 16, 16, 0, 0, 0, 0, 0, 0, 9, 9, 9, 9, 9, 9]]
 
-    def box_label(self, box, label="", color=(139, 69, 19), txt_color=(255, 255, 255), rotated=False):
+    def box_label(self, box, label="", color=(255, 102, 102), txt_color=(255, 255, 255), rotated=False):
         """Add one xyxy box to image with label."""
         if isinstance(box, torch.Tensor):
             box = box.tolist()
