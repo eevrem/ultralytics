@@ -53,6 +53,7 @@ class Colors:
             "CB38FF",
             "FF95C8",
             "FF37C7",
+            "007fff",
         )
         self.palette = [self.hex2rgb(f"#{c}") for c in hexs]
         self.n = len(self.palette)
@@ -62,6 +63,7 @@ class Colors:
                 [255, 153, 51],
                 [255, 178, 102],
                 [230, 230, 0],
+                [0,127, 255],
                 [255, 153, 255],
                 [153, 204, 255],
                 [255, 102, 255],
@@ -159,7 +161,7 @@ class Annotator:
         self.limb_color = colors.pose_palette[[9, 9, 9, 9, 7, 7, 7, 0, 0, 0, 0, 0, 16, 16, 16, 16, 16, 16, 16]]
         self.kpt_color = colors.pose_palette[[16, 16, 16, 16, 16, 0, 0, 0, 0, 0, 0, 9, 9, 9, 9, 9, 9]]
 
-    def box_label(self, box, label="", color=(255, 102, 102), txt_color=(255, 255, 255), rotated=False):
+    def box_label(self, box, label="", color=(0, 127, 255), txt_color=(255, 255, 255), rotated=False):
         """Add one xyxy box to image with label."""
         if isinstance(box, torch.Tensor):
             box = box.tolist()
@@ -365,7 +367,7 @@ class Annotator:
         """
         cv2.polylines(self.im, [np.array(reg_pts, dtype=np.int32)], isClosed=True, color=color, thickness=thickness)
 
-    def draw_centroid_and_tracks(self, track, color=(255, 0, 255), track_thickness=2):
+    def draw_centroid_and_tracks(self, track, color=(0, 127, 255), track_thickness=2):
         """
         Draw centroid point and track trails.
 
@@ -587,7 +589,7 @@ class Annotator:
         )
         cv2.putText(self.im, stage_text, stage_text_position, 0, self.sf, txt_color, self.tf)
 
-    def seg_bbox(self, mask, mask_color=(255, 0, 255), det_label=None, track_label=None):
+    def seg_bbox(self, mask, mask_color=(255,125, 170), det_label=None, track_label=None):
         """
         Function for drawing segmented object in bounding box shape.
 
